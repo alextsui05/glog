@@ -1,5 +1,5 @@
 This repository contains a fork of version 0.3.3 of glog, a C++ implementation
-of the Google logging module.  Documentation for the implementation is in doc/.
+of the Google logging module.  See [here](https://code.google.com/p/google-glog/) for the original project page on Google Code. Documentation for the implementation is in doc/.
 
 Installation
 -----
