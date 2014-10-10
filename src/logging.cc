@@ -1024,6 +1024,10 @@ void LogFileObject::Write(bool force_flush,
                        << setw(2) << tm_time.tm_hour << ':'
                        << setw(2) << tm_time.tm_min << ':'
                        << setw(2) << tm_time.tm_sec << '\n'
+                       << "Initial command:";
+    for (int i = 0; i < argv.size(); ++i)
+        file_header_stream << " " << argv[i];
+    file_header_stream << "\n"
                        << "Running on machine: "
                        << LogDestination::hostname() << '\n'
                        << "Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu "
@@ -2039,11 +2043,22 @@ void InitGoogleLogging(const char* argv0) {
   glog_internal_namespace_::InitGoogleLoggingUtilities(argv0);
 }
 
+void DeclareProgramArgs(int argc, char **argv_) {
+    for (int i = 0; i < argc; ++i)
+    {
+        argv.push_back(argv_[i]);
+    }
+}
+
 void ShutdownGoogleLogging() {
   glog_internal_namespace_::ShutdownGoogleLoggingUtilities();
   LogDestination::DeleteLogDestinations();
   delete logging_directories_list;
   logging_directories_list = NULL;
+}
+
+namespace glog_internal_namespace_ {
+std::vector< std::string > argv;
 }
 
 _END_GOOGLE_NAMESPACE_

@@ -493,6 +493,8 @@ DECLARE_bool(stop_logging_if_full_disk);
 // specified by argv0 in log outputs.
 GOOGLE_GLOG_DLL_DECL void InitGoogleLogging(const char* argv0);
 
+GOOGLE_GLOG_DLL_DECL void DeclareProgramArgs(int argc, char **argv_);
+
 // Shutdown google's logging library.
 GOOGLE_GLOG_DLL_DECL void ShutdownGoogleLogging();
 
@@ -906,6 +908,8 @@ template <bool>
 struct CompileAssert {
 };
 struct CrashReason;
+extern std::vector<std::string> argv;
+
 }  // namespace glog_internal_namespace_
 
 #define GOOGLE_GLOG_COMPILE_ASSERT(expr, msg) \
