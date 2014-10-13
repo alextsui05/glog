@@ -72,8 +72,8 @@
 /* Define to 1 if you have the <string.h> header file. */
 #cmakedefine01 HAVE_STRING_H
 
-/* Define to 1 if you have the <syscall.h> header file. */
-#cmakedefine01 HAVE_SYSCALL_H
+/* Define if you have the <syscall.h> header file. */
+#cmakedefine HAVE_SYSCALL_H
 
 /* Define to 1 if you have the <syslog.h> header file. */
 #cmakedefine01 HAVE_SYSLOG_H
@@ -97,7 +97,7 @@
 #cmakedefine01 HAVE_SYS_UTSNAME_H
 
 /* Define to 1 if you have the <ucontext.h> header file. */
-#cmakedefine01 HAVE_UCONTEXT_H
+//#cmakedefine01 HAVE_UCONTEXT_H
 
 /* Define to 1 if you have the <unistd.h> header file. */
 #cmakedefine01 HAVE_UNISTD_H
