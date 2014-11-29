@@ -177,3 +177,11 @@ add_library(glog SHARED
 )
 set(glog_INCLUDE_DIRECTORIES "${CMAKE_CURRENT_BINARY_DIR}/src;${CMAKE_CURRENT_SOURCE_DIR}/src" CACHE INTERNAL "glog header include locations")
 target_link_libraries(glog ${CMAKE_THREAD_LIBS_INIT} )
+install( TARGETS
+
+    glog
+
+    RUNTIME DESTINATION bin
+    LIBRARY DESTINATION lib
+    ARCHIVE DESTINATION lib/static
+)
