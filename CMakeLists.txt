@@ -1,6 +1,11 @@
 project(glog)
 cmake_minimum_required(VERSION 2.8)
 
+cmake_policy( VERSION 2.8 )
+if (POLICY CMP0042)
+    cmake_policy(SET CMP0042 OLD)
+endif (POLICY CMP0042)
+
 include(CheckIncludeFiles)
 check_include_files( stdint.h      HAVE_STDINT_H      )
 check_include_files( sys/types.h   HAVE_SYSTYPES_H    )
